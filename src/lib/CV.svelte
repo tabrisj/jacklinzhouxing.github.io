@@ -1,6 +1,7 @@
 <script>
-  import { Download, Briefcase, GraduationCap, Award } from '@lucide/svelte';
+  import { Download, Briefcase, GraduationCap, Award, FileText } from '@lucide/svelte';
   import { reveal } from './reveal.js';
+  import SectionHeading from './SectionHeading.svelte';
 
   const CV_URL = '/Xing_CV.pdf';
 
@@ -27,14 +28,11 @@
   ];
 </script>
 
-<section id="cv" class="py-20 md:py-24 border-t border-border bg-muted/20 scroll-mt-20">
+<section id="cv" class="py-14 md:py-16 border-t border-border bg-muted/20 scroll-mt-20">
   <div class="max-w-3xl mx-auto px-6">
-    <div use:reveal>
-      <h2 class="text-2xl md:text-3xl font-serif-display font-semibold text-foreground mb-2">Curriculum Vitae</h2>
-      <div class="w-12 h-px bg-primary/40 mb-8"></div>
-    </div>
+    <SectionHeading icon={FileText} title="Curriculum Vitae" />
 
-    <div use:reveal={{ delay: 50 }} class="mb-10">
+    <div use:reveal={{ delay: 50 }} class="mb-8">
       <a
         href={CV_URL}
         target="_blank"
@@ -46,7 +44,7 @@
       </a>
     </div>
 
-    <div class="grid grid-cols-1 gap-10">
+    <div class="grid grid-cols-1 gap-6">
       <div use:reveal={{ delay: 100 }} class="space-y-0">
         <div class="rounded-sm border border-border bg-background p-6 shadow-sm">
           <div class="mb-5">
@@ -115,6 +113,22 @@
             </ul>
           </div>
         </div>
+      </div>
+
+      <div use:reveal={{ delay: 150 }} class="space-y-3">
+        <div class="rounded-sm border border-border bg-background shadow-sm overflow-hidden">
+          <iframe
+            src={CV_URL}
+            title="Curriculum Vitae (embedded PDF)"
+            loading="lazy"
+            class="w-full border-0 block"
+            style="height: 80vh; min-height: 640px"
+          ></iframe>
+        </div>
+        <p class="text-caption text-muted-foreground">
+          If the preview does not load,
+          <a href={CV_URL} target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2">open the PDF in a new tab</a>.
+        </p>
       </div>
     </div>
   </div>

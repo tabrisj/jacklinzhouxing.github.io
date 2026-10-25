@@ -1,6 +1,7 @@
 <script>
   import { Newspaper } from '@lucide/svelte';
   import { reveal } from './reveal.js';
+  import SectionHeading from './SectionHeading.svelte';
 
   const L = 'text-primary hover:text-primary/70 underline underline-offset-2';
   const a = (href, text) =>
@@ -64,14 +65,11 @@
   ];
 </script>
 
-<section id="news" class="py-20 md:py-24 border-t border-border scroll-mt-20">
+<section id="news" class="py-14 md:py-16 border-t border-border scroll-mt-20">
   <div class="max-w-3xl mx-auto px-6">
-    <div use:reveal>
-      <h2 class="text-2xl md:text-3xl font-serif-display font-semibold text-foreground mb-2">News</h2>
-      <div class="w-12 h-px bg-primary/40 mb-10"></div>
-    </div>
+    <SectionHeading icon={Newspaper} title="News" />
 
-    <ul class="space-y-6">
+    <ul class="space-y-4">
       {#each newsItems as item, i (i)}
         <li use:reveal={{ delay: i * 60 }} class="flex gap-4 items-start">
           <Newspaper size={16} class="text-primary shrink-0 mt-1" />

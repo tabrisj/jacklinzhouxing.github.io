@@ -3,9 +3,9 @@
   import headshot from '../assets/headshot.jpg';
 </script>
 
-<section id="home" class="py-20 md:py-28 scroll-mt-20">
+<section id="home" class="py-14 md:py-20 scroll-mt-20">
   <div class="max-w-3xl mx-auto px-6">
-    <div use:reveal class="flex flex-col md:flex-row gap-10 md:gap-14 items-start">
+    <div use:reveal class="flex flex-col md:flex-row gap-8 md:gap-10 items-start">
       <div class="shrink-0">
         <img
           src={headshot}
@@ -13,7 +13,7 @@
           class="w-40 h-48 md:w-48 md:h-56 object-cover rounded-sm shadow-md"
         />
       </div>
-      <div class="space-y-5">
+      <div class="space-y-4">
         <div>
           <h1 class="text-3xl md:text-4xl font-serif-display font-semibold text-foreground leading-tight tracking-display">
             Jack Linzhou Xing 邢麟舟

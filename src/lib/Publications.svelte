@@ -1,5 +1,7 @@
 <script>
+  import { ScrollText } from '@lucide/svelte';
   import { reveal } from './reveal.js';
+  import SectionHeading from './SectionHeading.svelte';
 
   // Every entry links to the publisher record, so a reader can verify or cite
   // without downloading the PDF. Author order is as published.
@@ -72,20 +74,15 @@
   const byYear = (year) => publications.filter((p) => p.year === year);
 </script>
 
-<section id="publications" class="py-20 md:py-24 border-t border-border scroll-mt-20">
+<section id="publications" class="py-14 md:py-16 border-t border-border scroll-mt-20">
   <div class="max-w-3xl mx-auto px-6">
-    <div use:reveal>
-      <h2 class="text-2xl md:text-3xl font-serif-display font-semibold text-foreground mb-2">
-        Publications
-      </h2>
-      <div class="w-12 h-px bg-primary/40 mb-10"></div>
-    </div>
+    <SectionHeading icon={ScrollText} title="Publications" />
 
-    <div class="space-y-10">
+    <div class="space-y-7">
       {#each years as year (year)}
         <div use:reveal>
-          <h3 class="text-lg font-serif-display font-semibold text-primary mb-4">{year}</h3>
-          <ul class="space-y-5">
+          <h3 class="text-lg font-serif-display font-semibold text-primary mb-3">{year}</h3>
+          <ul class="space-y-3.5">
             {#each byYear(year) as pub (pub.title)}
               <li>
                 <a

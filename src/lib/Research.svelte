@@ -1,6 +1,7 @@
 <script>
-  import { Cpu, Globe, Shield, Lightbulb } from '@lucide/svelte';
+  import { Cpu, Globe, Shield, Lightbulb, Microscope } from '@lucide/svelte';
   import { reveal } from './reveal.js';
+  import SectionHeading from './SectionHeading.svelte';
 
   const pillars = [
     {
@@ -33,20 +34,17 @@
   ];
 </script>
 
-<section id="research" class="py-20 md:py-24 border-t border-border scroll-mt-20">
+<section id="research" class="py-14 md:py-16 border-t border-border scroll-mt-20">
   <div class="max-w-3xl mx-auto px-6">
-    <div use:reveal>
-      <h2 class="text-2xl md:text-3xl font-serif-display font-semibold text-foreground mb-2">Research</h2>
-      <div class="w-12 h-px bg-primary/40 mb-10"></div>
-    </div>
+    <SectionHeading icon={Microscope} title="Research" />
 
-    <div class="grid md:grid-cols-2 gap-6">
+    <div class="grid md:grid-cols-2 gap-4">
       {#each pillars as item, i (item.title)}
         {@const Icon = item.icon}
         <div use:reveal={{ delay: i * 80 }}>
           <a
             href={item.href}
-            class="block border border-border rounded-sm p-6 bg-card scroll-mt-24 hover:border-primary/40 hover:shadow-sm transition-all duration-200 group"
+            class="block border border-border rounded-sm p-5 bg-card scroll-mt-24 hover:border-primary/40 hover:shadow-sm transition-all duration-200 group"
           >
             <Icon size={20} class="text-primary mb-3" />
             <h3

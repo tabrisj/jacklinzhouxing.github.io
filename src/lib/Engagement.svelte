@@ -1,6 +1,7 @@
 <script>
-  import { Globe, Languages } from '@lucide/svelte';
+  import { Globe, Languages, Megaphone } from '@lucide/svelte';
   import { reveal } from './reveal.js';
+  import SectionHeading from './SectionHeading.svelte';
 
   const englishMedia = [
     { year: 2026, title: "China's great jobs squeeze", outlet: 'The Financial Times', type: 'Interview', url: 'https://as.ft.com/r/ba98c720-9c73-4482-a101-8d7329b55809' },
@@ -50,15 +51,12 @@
   </ul>
 {/snippet}
 
-<section id="engagement" class="py-20 md:py-24 border-t border-border scroll-mt-20">
+<section id="engagement" class="py-14 md:py-16 border-t border-border scroll-mt-20">
   <div class="max-w-3xl mx-auto px-6">
-    <div use:reveal>
-      <h2 class="text-2xl md:text-3xl font-serif-display font-semibold text-foreground mb-2">Engagement</h2>
-      <div class="w-12 h-px bg-primary/40 mb-10"></div>
-    </div>
+    <SectionHeading icon={Megaphone} title="Engagement" />
 
-    <div use:reveal={{ delay: 50 }} class="mb-12">
-      <div class="flex items-center gap-2.5 mb-5">
+    <div use:reveal={{ delay: 50 }} class="mb-8">
+      <div class="flex items-center gap-2.5 mb-4">
         <Globe size={18} class="text-primary shrink-0" />
         <h3 class="font-serif-display font-semibold text-foreground text-lg">English Media</h3>
       </div>
@@ -66,7 +64,7 @@
     </div>
 
     <div use:reveal={{ delay: 100 }}>
-      <div class="flex items-center gap-2.5 mb-5">
+      <div class="flex items-center gap-2.5 mb-4">
         <Languages size={18} class="text-primary shrink-0" />
         <h3 class="font-serif-display font-semibold text-foreground text-lg">Chinese Media</h3>
       </div>

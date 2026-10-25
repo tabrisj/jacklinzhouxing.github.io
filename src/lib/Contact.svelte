@@ -1,9 +1,11 @@
 <script>
-  import { Mail, MapPin, Send, Check, GraduationCap, BookOpen } from '@lucide/svelte';
+  import { Mail, MapPin, Send, Check, GraduationCap } from '@lucide/svelte';
   import { tick } from 'svelte';
   import BrandLinkedin from './BrandLinkedin.svelte';
   import BrandX from './BrandX.svelte';
+  import BrandXiaohongshu from './BrandXiaohongshu.svelte';
   import { reveal } from './reveal.js';
+  import SectionHeading from './SectionHeading.svelte';
 
   let sent = $state(false);
   let submitting = $state(false);
@@ -14,7 +16,7 @@
     { icon: BrandLinkedin, label: 'Jack Linzhou Xing', href: 'https://www.linkedin.com/in/jacklinzhouxing/' },
     { icon: BrandX, label: '@XingJLZ', href: 'https://x.com/XingJLZ' },
     { icon: GraduationCap, label: 'Google Scholar', href: 'https://scholar.google.com/citations?user=nqQte2oAAAAJ&hl=en&oi=ao' },
-    { icon: BookOpen, label: '边缘学术人', href: null }
+    { icon: BrandXiaohongshu, label: '边缘学术人', href: 'https://xhslink.cn/o/7xPzz8l5NT' }
   ];
 
   async function handleSubmit(event) {
@@ -54,14 +56,11 @@
   }
 </script>
 
-<section id="contact" class="py-20 md:py-24 border-t border-border scroll-mt-20">
+<section id="contact" class="py-14 md:py-16 border-t border-border scroll-mt-20">
   <div class="max-w-3xl mx-auto px-6">
-    <div use:reveal>
-      <h2 class="text-2xl md:text-3xl font-serif-display font-semibold text-foreground mb-2">Contact</h2>
-      <div class="w-12 h-px bg-primary/40 mb-10"></div>
-    </div>
+    <SectionHeading icon={Mail} title="Contact" />
 
-    <div use:reveal={{ delay: 100 }} class="grid md:grid-cols-2 gap-12">
+    <div use:reveal={{ delay: 100 }} class="grid md:grid-cols-2 gap-10">
       <div class="space-y-6">
         <p class="text-body text-foreground/80 leading-relaxed">
           I welcome inquiries from prospective collaborators, graduate students, and colleagues. Please feel
@@ -91,13 +90,13 @@
               {#if s.href}
                 <a href={s.href} target="_blank" rel="noopener noreferrer">
                   <span class="inline-flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors">
-                    <Icon size={15} class="text-primary shrink-0" />
+                    <Icon size={16} class="text-primary shrink-0" />
                     {s.label}
                   </span>
                 </a>
               {:else}
                 <span class="inline-flex items-center gap-1.5 text-muted-foreground">
-                  <Icon size={15} class="text-primary shrink-0" />
+                  <Icon size={16} class="text-primary shrink-0" />
                   {s.label}
                 </span>
               {/if}

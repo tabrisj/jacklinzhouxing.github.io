@@ -1,6 +1,7 @@
 <script>
   import { BookOpen } from '@lucide/svelte';
   import { reveal } from './reveal.js';
+  import SectionHeading from './SectionHeading.svelte';
 
   const guestLectures = [
     { course: 'Contemporary Chinese Society', school: 'Harvard University, 2026', lecture: 'How to build a platform in China?' },
@@ -22,16 +23,11 @@
   ];
 </script>
 
-<section id="teaching" class="py-20 md:py-24 bg-muted/30 scroll-mt-20">
+<section id="teaching" class="py-14 md:py-16 bg-muted/30 scroll-mt-20">
   <div class="max-w-3xl mx-auto px-6">
-    <div use:reveal>
-      <h2 class="font-serif text-2xl md:text-3xl font-bold text-foreground mb-10 flex items-center gap-3">
-        <BookOpen class="text-primary" size={28} />
-        Teaching
-      </h2>
-    </div>
+    <SectionHeading icon={BookOpen} title="Teaching" />
 
-    <div class="mb-10">
+    <div class="mb-6">
       <h3 class="font-serif text-lg font-semibold text-foreground mb-4">Teaching Interests</h3>
       <p class="text-muted-foreground leading-relaxed">
         Sociology of Technology and Work; Science, Technology, and Society (STS); Innovation Policy; Digital
@@ -39,9 +35,9 @@
       </p>
     </div>
 
-    <div class="mb-8">
-      <h3 class="font-serif text-lg font-semibold text-foreground mb-6">Guest Lecturer</h3>
-      <ul class="space-y-4 text-muted-foreground">
+    <div class="mb-6">
+      <h3 class="font-serif text-lg font-semibold text-foreground mb-4">Guest Lecturer</h3>
+      <ul class="space-y-3 text-muted-foreground">
         {#each guestLectures as item, i (i)}
           <li class="pl-5 border-l-2 border-primary/20">
             <span class="font-serif font-semibold text-foreground">{item.course}</span>
@@ -53,8 +49,8 @@
       </ul>
     </div>
 
-    <div class="mb-8">
-      <h3 class="font-serif text-lg font-semibold text-foreground mb-6">Teaching Assistant</h3>
+    <div class="mb-6">
+      <h3 class="font-serif text-lg font-semibold text-foreground mb-4">Teaching Assistant</h3>
       <ul class="space-y-3 text-muted-foreground">
         {#each teachingAssistant as item, i (i)}
           <li class="pl-5 border-l-2 border-primary/20">
@@ -66,7 +62,7 @@
     </div>
 
     <div>
-      <h3 class="font-serif text-lg font-semibold text-foreground mb-6">Tutorial Instructor</h3>
+      <h3 class="font-serif text-lg font-semibold text-foreground mb-4">Tutorial Instructor</h3>
       <ul class="space-y-3 text-muted-foreground">
         {#each tutorialInstructor as item, i (i)}
           <li class="pl-5 border-l-2 border-primary/20">
