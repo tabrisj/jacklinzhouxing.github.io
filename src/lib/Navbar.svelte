@@ -6,6 +6,7 @@
 
   const navItems = [
     { id: 'home', label: 'Home' },
+    { id: 'publications', label: 'Publications' },
     { id: 'news', label: 'News' },
     { id: 'research', label: 'Research' },
     { id: 'teaching', label: 'Teaching' },
@@ -42,8 +43,10 @@
     document.getElementById('nav-toggle')?.focus();
   }
 
+  // Eight items plus the wordmark have to fit a 720px column at lg, so the
+  // pills run tighter than they would on a full-width bar.
   const linkBase =
-    'rounded-full px-2.5 py-2 text-caption font-medium transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background';
+    'rounded-full px-2 py-2 text-caption font-medium whitespace-nowrap transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background';
   const linkRest = 'text-muted-foreground hover:bg-secondary hover:text-foreground';
   const linkActive = 'bg-primary/10 text-primary';
 </script>

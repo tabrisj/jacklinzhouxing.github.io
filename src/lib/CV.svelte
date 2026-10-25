@@ -1,5 +1,5 @@
 <script>
-  import { Download, Briefcase, GraduationCap, BookOpen, Award } from '@lucide/svelte';
+  import { Download, Briefcase, GraduationCap, Award } from '@lucide/svelte';
   import { reveal } from './reveal.js';
 
   const CV_URL = '/Xing_CV.pdf';
@@ -14,17 +14,6 @@
     'MPhil, Science & Technology Studies, The University of Hong Kong, 2019',
     'MA, Social Science, Hong Kong University of Science and Technology, 2017',
     'BBA (Acc & Fin), The University of Hong Kong, 2016'
-  ];
-
-  const publications = [
-    { html: '<strong>Xing, J. L.</strong>, &amp; Zhang, J. (2026). Drive to grow: Spatial frictions and struggles in a Chinese Ride-hailing platform\u2019s scale-making.', venue: 'Global Media and China, 20594364261456948.' },
-    { html: '<strong>Xing, J. L.</strong> (2026). Rethinking AI from the mobile end: An assemblage-centered Lens.', venue: 'Mobile Media &amp; Communication, 20501579261458249.' },
-    { html: '<strong>Xing, J. L.</strong>, &amp; Zheng, E. L. (2026). Patchwork surveillance and accountability labor: China\u2019s Health Code Systems during COVID-19.', venue: 'Big Data &amp; Society, 13(1).' },
-    { html: '<strong>Xing, J. L.</strong>, Zhang, J., &amp; Santos, G. (2026). Mythology of wealth in the platform economy: The case of the ride-hailing platform Didi in China.', venue: 'Science, Technology, &amp; Human Values.' },
-    { html: 'Zhang, J., &amp; <strong>Xing, J. L.</strong> (2025). Towards a processual approach to the infrastructuralization of digital platforms: The case of WeChat.', venue: 'Chinese Journal of Communication, 0(0), 1\u201318.' },
-    { html: '<strong>Xing, J. L.</strong>, &amp; Sharif, N. (2025). A processual approach to skill changes in digital automation: The case of the platform economy in the service sector.', venue: 'Research Policy, 54(4): 105190.' },
-    { html: '<strong>Xing, J. L.</strong> (2022). Driving as communities: Chinese taxi drivers\u2019 technology, job, and mobility choices under the pressure of e-hailing.', venue: 'Mobilities, 17(5): 676-694.' },
-    { html: '<strong>Xing, J. L.</strong>, &amp; Sharif, N. (2020). From creative destruction to creative appropriation: A comprehensive framework.', venue: 'Research Policy, 49(7): 104060.' }
   ];
 
   const service = [
@@ -87,23 +76,6 @@
                 <li class="flex gap-2">
                   <span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary/50 shrink-0"></span>
                   <span>{line}</span>
-                </li>
-              {/each}
-            </ul>
-          </div>
-
-          <div class="h-px bg-border my-5"></div>
-
-          <div class="mb-5">
-            <div class="flex items-center gap-2.5 mb-3">
-              <BookOpen size={18} class="text-primary shrink-0" />
-              <h3 class="font-serif-display font-semibold text-foreground text-base">Selected Publications</h3>
-            </div>
-            <ul class="space-y-3 text-sm text-muted-foreground leading-relaxed">
-              {#each publications as pub}
-                <li>
-                  {@html pub.html}
-                  <em>{@html pub.venue}</em>
                 </li>
               {/each}
             </ul>

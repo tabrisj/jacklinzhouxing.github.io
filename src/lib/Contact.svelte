@@ -1,11 +1,14 @@
 <script>
   import { Mail, MapPin, Send, Check, GraduationCap, BookOpen } from '@lucide/svelte';
+  import { tick } from 'svelte';
   import BrandLinkedin from './BrandLinkedin.svelte';
   import BrandX from './BrandX.svelte';
   import { reveal } from './reveal.js';
 
   let sent = $state(false);
   let submitting = $state(false);
+  let errorMsg = $state('');
+  let errorEl = $state(null);
 
   const socialLinks = [
     { icon: BrandLinkedin, label: 'Jack Linzhou Xing', href: 'https://www.linkedin.com/in/jacklinzhouxing/' },
@@ -17,6 +20,7 @@
   async function handleSubmit(event) {
     event.preventDefault();
     submitting = true;
+    errorMsg = '';
     const form = event.currentTarget;
 
     try {
@@ -25,14 +29,27 @@
         body: new FormData(form),
         headers: { Accept: 'application/json' }
       });
+
       if (res.ok) {
         sent = true;
         form.reset();
+      } else {
+        // Formspree rate-limits and rejects; say so instead of pretending it worked.
+        errorMsg =
+          'Your message did not send. Please try again in a moment, or email me directly at xinglz@ust.hk.';
       }
     } catch {
-      // silently fail, same behaviour as the original
+      errorMsg =
+        'Your message did not send — the connection failed. Please check your network and try again, or email me directly at xinglz@ust.hk.';
     } finally {
       submitting = false;
+    }
+
+    // Move focus to the alert so a screen reader announces it and sighted
+    // keyboard users land on the explanation rather than back at the top.
+    if (errorMsg) {
+      await tick();
+      errorEl?.focus();
     }
   }
 </script>
@@ -90,7 +107,10 @@
       </div>
 
       {#if sent}
-        <div class="flex flex-col items-center justify-center text-center space-y-3 py-12">
+        <div
+          aria-live="polite"
+          class="flex flex-col items-center justify-center text-center space-y-3 py-12"
+        >
           <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
             <Check size={24} class="text-primary" />
           </div>
@@ -102,6 +122,17 @@
         </div>
       {:else}
         <form onsubmit={handleSubmit} class="space-y-4">
+          {#if errorMsg}
+            <div
+              bind:this={errorEl}
+              role="alert"
+              tabindex="-1"
+              class="rounded-sm border border-destructive/40 bg-destructive/5 px-4 py-3 text-sm text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-destructive focus-visible:ring-offset-2"
+            >
+              {errorMsg}
+            </div>
+          {/if}
+
           <div>
             <label for="name" class="block text-sm font-medium text-foreground mb-1">Name</label>
             <input
@@ -109,7 +140,8 @@
               name="name"
               type="text"
               required
-              class="w-full px-3 py-2 rounded-sm bg-card border border-border text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-ring transition-shadow"
+              autocomplete="name"
+              class="w-full px-3 py-2 rounded-sm bg-card border border-border text-foreground text-base sm:text-sm focus:outline-none focus:ring-1 focus:ring-ring transition-shadow"
             />
           </div>
           <div>
@@ -119,7 +151,8 @@
               name="email"
               type="email"
               required
-              class="w-full px-3 py-2 rounded-sm bg-card border border-border text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-ring transition-shadow"
+              autocomplete="email"
+              class="w-full px-3 py-2 rounded-sm bg-card border border-border text-foreground text-base sm:text-sm focus:outline-none focus:ring-1 focus:ring-ring transition-shadow"
             />
           </div>
           <div>
@@ -129,7 +162,7 @@
               name="message"
               rows="4"
               required
-              class="w-full px-3 py-2 rounded-sm bg-card border border-border text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-ring transition-shadow resize-none"
+              class="w-full px-3 py-2 rounded-sm bg-card border border-border text-foreground text-base sm:text-sm focus:outline-none focus:ring-1 focus:ring-ring transition-shadow resize-none"
             ></textarea>
           </div>
           <button
@@ -140,6 +173,9 @@
             <Send size={15} />
             {submitting ? 'Sending…' : 'Send Message'}
           </button>
+          <p class="text-caption text-muted-foreground pt-1">
+            Prefer email? Write to <a href="mailto:xinglz@ust.hk" class="text-primary underline underline-offset-2">xinglz@ust.hk</a>.
+          </p>
         </form>
       {/if}
     </div>

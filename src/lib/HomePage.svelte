@@ -1,6 +1,7 @@
 <script>
   import Navbar from './Navbar.svelte';
   import Home from './Home.svelte';
+  import Publications from './Publications.svelte';
   import News from './News.svelte';
   import Research from './Research.svelte';
   import Teaching from './Teaching.svelte';
@@ -15,6 +16,7 @@
   <Navbar />
   <main>
     <Home />
+    <Publications />
     <News />
     <Research />
     <Teaching />
