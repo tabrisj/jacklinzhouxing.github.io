@@ -6,6 +6,7 @@
     <title>Jack Linzhou Xing | Assistant Professor, Division of Public Policy, Hong Kong University of Science and Technology</title>
     <meta name="description" content="Personal academic website of Jack Linzhou Xing, Assistant Professor in the Division of Public Policy at HKUST. Research on STS, the platform economy, and digital labor." />
     <meta name="author" content="Jack Linzhou Xing" />
+    <link rel="canonical" href="https://jacklinzhouxing.github.io/" />
 
     <link rel="icon" href="/favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
@@ -23,10 +24,33 @@
     <meta name="twitter:site" content="@XingJLZ" />
     <meta name="twitter:creator" content="@XingJLZ" />
     <meta name="twitter:image" content="https://jacklinzhouxing.github.io/headshot.jpg" />
-  </head>
 
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Jack Linzhou Xing",
+        "alternateName": "邢麟舟",
+        "jobTitle": "Assistant Professor",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Hong Kong University of Science and Technology",
+          "department": "Division of Public Policy"
+        },
+        "url": "https://jacklinzhouxing.github.io/",
+        "image": "https://jacklinzhouxing.github.io/headshot.jpg",
+        "email": "xinglz@ust.hk",
+        "knowsAbout": ["Science and Technology Studies", "Platform Economy", "Digital Labor", "Innovation Policy"],
+        "sameAs": [
+          "https://scholar.google.com/citations?user=nqQte2oAAAAJ",
+          "https://x.com/XingJLZ",
+          "https://www.linkedin.com/in/jacklinzhouxing/"
+        ]
+      }
+    </script>
+  </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="app"></div>
+    <script type="module" src="/src/entries/home.js"></script>
   </body>
 </html>
