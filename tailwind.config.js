@@ -54,6 +54,14 @@ export default {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)'
       },
+      // Pin the generic families to the site's real faces. Without this,
+      // `font-serif` silently resolves to Tailwind's default Georgia stack and
+      // any component using it renders in a different typeface from the rest
+      // of the page — which is exactly what had happened in Teaching.
+      fontFamily: {
+        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+        sans: ['"Source Sans 3"', 'system-ui', 'sans-serif']
+      },
       // Named steps for the sizes this site actually uses, so the markup stops
       // carrying arbitrary values like text-[15px] that drift apart over time.
       fontSize: {

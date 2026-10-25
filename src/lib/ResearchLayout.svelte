@@ -1,30 +1,30 @@
 <script>
   import { ArrowLeft } from '@lucide/svelte';
   import { reveal } from './reveal.js';
+  import Navbar from './Navbar.svelte';
 
   let { icon: Icon, title, narrative, publications } = $props();
 </script>
 
 <div class="min-h-screen bg-background text-foreground">
-  <header class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-    <div class="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a
-        href="/"
-        class="font-serif-display text-lg font-semibold text-foreground hover:text-primary transition-colors"
-      >
-        Jack Linzhou Xing 邢麟舟
-      </a>
-      <a
-        href="/#research"
-        class="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
-      >
-        <ArrowLeft size={14} />
-        Back to Home
-      </a>
-    </div>
-  </header>
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:rounded-sm focus:bg-primary focus:px-4 focus:py-2 focus:text-body-sm focus:font-medium focus:text-primary-foreground"
+  >
+    Skip to content
+  </a>
 
-  <main class="max-w-3xl mx-auto px-6 py-16">
+  <Navbar base="/" spy={false} />
+
+  <main id="main-content" class="max-w-3xl mx-auto px-6 py-16">
+    <a
+      href="/#research"
+      class="inline-flex items-center gap-1.5 text-caption text-muted-foreground hover:text-primary transition-colors mb-8 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+    >
+      <ArrowLeft size={14} />
+      Back to Research
+    </a>
+
     <div use:reveal>
       <div class="flex items-center gap-3 mb-6">
         <Icon size={24} class="text-primary" />

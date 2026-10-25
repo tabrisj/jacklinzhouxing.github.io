@@ -28,7 +28,7 @@
 </script>
 
 <section id="cv" class="py-20 md:py-24 border-t border-border bg-muted/20 scroll-mt-20">
-  <div class="max-w-6xl mx-auto px-6">
+  <div class="max-w-3xl mx-auto px-6">
     <div use:reveal>
       <h2 class="text-2xl md:text-3xl font-serif-display font-semibold text-foreground mb-2">Curriculum Vitae</h2>
       <div class="w-12 h-px bg-primary/40 mb-8"></div>
@@ -46,8 +46,8 @@
       </a>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-5 gap-10">
-      <div use:reveal={{ delay: 100 }} class="lg:col-span-2 space-y-0">
+    <div class="grid grid-cols-1 gap-10">
+      <div use:reveal={{ delay: 100 }} class="space-y-0">
         <div class="rounded-sm border border-border bg-background p-6 shadow-sm">
           <div class="mb-5">
             <div class="flex items-center gap-2.5 mb-3">
@@ -115,18 +115,6 @@
             </ul>
           </div>
         </div>
-      </div>
-
-      <div
-        use:reveal={{ delay: 150 }}
-        class="lg:col-span-3 rounded-sm border border-border shadow-sm overflow-hidden bg-background"
-      >
-        <iframe src={CV_URL} title="Curriculum Vitae" class="w-full border-0" style="height: 900px"></iframe>
-        <noscript>
-          <p class="p-6 text-sm text-muted-foreground">
-            PDF viewer unavailable. <a href={CV_URL} class="text-primary underline">Download the CV directly</a>.
-          </p>
-        </noscript>
       </div>
     </div>
   </div>

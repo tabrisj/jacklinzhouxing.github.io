@@ -1,8 +1,13 @@
 <script>
   import { Menu, X } from '@lucide/svelte';
 
+  // `base` is '' on the homepage (in-page anchors) and '/' on the research
+  // subpages, where the same links have to travel back to the homepage.
+  // `spy` is off there because those sections do not exist on the page.
+  let { base = '', spy = true } = $props();
+
   let mobileOpen = $state(false);
-  let activeId = $state('home');
+  let activeId = $state('');
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -17,6 +22,8 @@
 
   // Track which section owns the viewport so the nav can show a current state.
   $effect(() => {
+    if (!spy) return;
+
     const targets = navItems
       .map((item) => document.getElementById(item.id))
       .filter((el) => el !== null);
@@ -56,7 +63,7 @@
 <nav class="sticky top-0 z-50 w-full bg-background/90 backdrop-blur-sm border-b border-border">
   <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
     <a
-      href="#home"
+      href="{base}#home"
       class="font-serif-display text-lg font-semibold text-foreground whitespace-nowrap rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background"
     >
       Jack Linzhou Xing
@@ -65,8 +72,8 @@
     <div class="hidden lg:flex items-center gap-1">
       {#each navItems as item (item.id)}
         <a
-          href="#{item.id}"
-          aria-current={activeId === item.id ? 'true' : undefined}
+          href="{base}#{item.id}"
+          aria-current={activeId === item.id ? 'location' : undefined}
           class="{linkBase} {activeId === item.id ? linkActive : linkRest}"
         >
           {item.label}
@@ -91,8 +98,8 @@
       <div class="max-w-3xl mx-auto flex flex-col gap-1">
         {#each navItems as item (item.id)}
           <a
-            href="#{item.id}"
-            aria-current={activeId === item.id ? 'true' : undefined}
+            href="{base}#{item.id}"
+            aria-current={activeId === item.id ? 'location' : undefined}
             class="block px-3 py-2.5 rounded-md text-body-sm font-medium transition-colors duration-150 {activeId ===
             item.id
               ? 'bg-primary/10 text-primary'

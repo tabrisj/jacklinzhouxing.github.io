@@ -10,27 +10,6 @@
   // so it is rendered verbatim rather than escaped.
   const newsItems = [
     {
-      date: 'August 12, 2026',
-      html: `Interviewed by Will Langley in <em>The Financial Times</em> article: ${a(
-        'https://as.ft.com/r/ba98c720-9c73-4482-a101-8d7329b55809',
-        'China&rsquo;s great jobs squeeze'
-      )}.`
-    },
-    {
-      date: 'June 28, 2026',
-      html: `Interviewed by Will Langley in <em>The Financial Times</em> article: ${a(
-        'https://www.ft.com/content/b1445598-e5e3-4530-9e82-e0155c44106b?accessToken=zwAAAZ9jkqcQkdOxRFWY5eNFMNOeguAVXEQQaw.MEUCIQCJaMZjWnuNimCe_VkdsLoMZd0fcQJc8GsM-gEqL-7KqAIgBNIrFb1f9aW9I5trHPhZgo4dkJF2KaYfTuQ7K7iiY8k&segmentId=e95a9ae7-622c-6235-5f87-51e412b47e97&shareId=897ddab0-608c-4d81-8312-c08dfcb78854&shareType=enterprise&syn-25a6b1a6=1',
-        'Chinese tech hub&rsquo;s shift into robotaxis leaves drivers by the wayside'
-      )}.`
-    },
-    {
-      date: 'June 7, 2026',
-      html: `Interviewed by Rachel Cheung in <em>The Wire China</em> article: ${a(
-        'https://www.thewirechina.com/2026/06/07/balancing-ai-pains-and-gains/',
-        'Balancing AI Pains and Gains'
-      )}.`
-    },
-    {
       date: 'May 8, 2026',
       html: 'Chaired the <em>Digital Statecraft and Political Economy in China</em> conference at University of California, Berkeley.'
     },
@@ -57,13 +36,6 @@
       )}. Abstract deadline: April 30, 2026. See the ${a(
         'https://docs.google.com/document/d/1pipYgSPOuNoQflyb-iwbPTNPMRLnit3n/edit?usp=sharing&ouid=100719509504817851767&rtpof=true&sd=true',
         'CFP'
-      )}.`
-    },
-    {
-      date: 'March 19, 2026',
-      html: `Interviewed by Kinling Lo in the <em>Rest of World</em> article: ${a(
-        'https://restofworld.org/2026/china-ai-anxiety-openclaw-jobs-redundancy/',
-        '&lsquo;It feels like Squid Game&rsquo;: China&rsquo;s workers scramble to keep up in the AI race'
       )}.`
     },
     {
@@ -100,7 +72,7 @@
     </div>
 
     <ul class="space-y-6">
-      {#each newsItems as item, i (item.date)}
+      {#each newsItems as item, i (i)}
         <li use:reveal={{ delay: i * 60 }} class="flex gap-4 items-start">
           <Newspaper size={16} class="text-primary shrink-0 mt-1" />
           <div>
