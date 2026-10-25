@@ -54,6 +54,17 @@ export default {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)'
       },
+      // Named steps for the sizes this site actually uses, so the markup stops
+      // carrying arbitrary values like text-[15px] that drift apart over time.
+      fontSize: {
+        caption: ['0.8125rem', { lineHeight: '1.5' }], // 13px — meta, dates, tags
+        'body-sm': ['0.875rem', { lineHeight: '1.6' }], // 14px — dense UI copy
+        body: ['0.9375rem', { lineHeight: '1.65' }], // 15px — default body copy
+        lead: ['1.0625rem', { lineHeight: '1.6' }] // 17px — standfirst paragraphs
+      },
+      letterSpacing: {
+        display: '-0.02em'
+      },
       keyframes: {
         'fade-in-up': {
           from: { opacity: '0', transform: 'translateY(16px)' },

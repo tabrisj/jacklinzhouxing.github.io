@@ -23,7 +23,10 @@
     --secondary-foreground: 220 10% 20%;
 
     --muted: 40 10% 90%;
-    --muted-foreground: 220 5% 46%;
+    /* 220 5% 46% measured 4.45:1 on --background, just under the 4.5:1 AA floor
+       for the 13–14px text it is used on (nav links, dates, captions).
+       220 8% 40% measures 5.65:1 and stays clearly secondary. */
+    --muted-foreground: 220 8% 40%;
 
     --accent: 352 72% 40%;
     --accent-foreground: 40 20% 97%;
@@ -80,11 +83,19 @@
     @apply bg-background text-foreground;
     font-family: 'Source Sans 3', system-ui, sans-serif;
     line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 600;
     letter-spacing: -0.01em;
+    /* Stops a lone word landing on the last line of a heading. */
+    text-wrap: balance;
+  }
+  /* Long-form copy: avoid orphans without touching headings. */
+  p {
+    text-wrap: pretty;
   }
 }
 
@@ -98,5 +109,9 @@
   .font-mono-data {
     font-family: 'JetBrains Mono', monospace;
     font-variant-numeric: tabular-nums;
+  }
+  /* Caps the measure at ~68 characters, inside the wider layout column. */
+  .measure {
+    max-width: 68ch;
   }
 }

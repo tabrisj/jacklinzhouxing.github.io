@@ -33,7 +33,7 @@
       <div class="w-12 h-px bg-primary/40 mb-8"></div>
     </div>
 
-    <p use:reveal={{ delay: 100 }} class="text-[15px] text-foreground/80 leading-relaxed mb-12">
+    <p use:reveal={{ delay: 100 }} class="text-body text-foreground/80 leading-relaxed mb-12 measure">
       {narrative}
     </p>
 

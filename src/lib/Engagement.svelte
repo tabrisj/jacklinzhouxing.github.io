@@ -31,7 +31,7 @@
     {#each items as item, i (i)}
       <li use:reveal={{ delay: i * 40 }} class="flex gap-3 items-start">
         <span class="text-xs font-mono text-muted-foreground pt-1 shrink-0 w-10">[{item.year}]</span>
-        <p class="text-[15px] leading-relaxed text-foreground/80">
+        <p class="text-body leading-relaxed text-foreground/80">
           <a
             href={item.url}
             target="_blank"
@@ -41,7 +41,7 @@
             {item.title}
           </a>
           {#if item.type}
-            <span class="ml-1.5 text-xs font-medium text-primary/60">({item.type})</span>
+            <span class="ml-1.5 text-xs font-medium text-primary/80">({item.type})</span>
           {/if}
           <span class="text-muted-foreground"> — {item.outlet}</span>
         </p>
@@ -50,7 +50,7 @@
   </ul>
 {/snippet}
 
-<section id="engagement" class="py-20 border-t border-border">
+<section id="engagement" class="py-20 md:py-24 border-t border-border scroll-mt-20">
   <div class="max-w-3xl mx-auto px-6">
     <div use:reveal>
       <h2 class="text-2xl md:text-3xl font-serif-display font-semibold text-foreground mb-2">Engagement</h2>

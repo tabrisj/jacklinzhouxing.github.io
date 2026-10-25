@@ -37,7 +37,7 @@
   }
 </script>
 
-<section id="contact" class="py-20 border-t border-border">
+<section id="contact" class="py-20 md:py-24 border-t border-border scroll-mt-20">
   <div class="max-w-3xl mx-auto px-6">
     <div use:reveal>
       <h2 class="text-2xl md:text-3xl font-serif-display font-semibold text-foreground mb-2">Contact</h2>
@@ -46,7 +46,7 @@
 
     <div use:reveal={{ delay: 100 }} class="grid md:grid-cols-2 gap-12">
       <div class="space-y-6">
-        <p class="text-[15px] text-foreground/80 leading-relaxed">
+        <p class="text-body text-foreground/80 leading-relaxed">
           I welcome inquiries from prospective collaborators, graduate students, and colleagues. Please feel
           free to reach out.
         </p>

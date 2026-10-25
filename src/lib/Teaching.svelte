@@ -22,8 +22,8 @@
   ];
 </script>
 
-<section id="teaching" class="py-20 px-6 bg-muted/30">
-  <div class="max-w-3xl mx-auto">
+<section id="teaching" class="py-20 md:py-24 bg-muted/30 scroll-mt-20">
+  <div class="max-w-3xl mx-auto px-6">
     <div use:reveal>
       <h2 class="font-serif text-2xl md:text-3xl font-bold text-foreground mb-10 flex items-center gap-3">
         <BookOpen class="text-primary" size={28} />
@@ -47,7 +47,7 @@
             <span class="font-serif font-semibold text-foreground">{item.course}</span>
             <span class="text-sm text-muted-foreground ml-1">({item.school})</span>
             <br />
-            <span class="text-sm italic text-muted-foreground/80">Lecture: "{item.lecture}"</span>
+            <span class="text-sm italic text-muted-foreground">Lecture: "{item.lecture}"</span>
           </li>
         {/each}
       </ul>

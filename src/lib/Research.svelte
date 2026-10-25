@@ -33,7 +33,7 @@
   ];
 </script>
 
-<section id="research" class="py-20 border-t border-border">
+<section id="research" class="py-20 md:py-24 border-t border-border scroll-mt-20">
   <div class="max-w-3xl mx-auto px-6">
     <div use:reveal>
       <h2 class="text-2xl md:text-3xl font-serif-display font-semibold text-foreground mb-2">Research</h2>
